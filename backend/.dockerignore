@@ -1,5 +1,6 @@
 **/.dockerignore
 **/.gitignore
+**/.env
 **/.vscode
 **/compose.y*ml
 **/Dockerfile*

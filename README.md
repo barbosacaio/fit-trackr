@@ -58,7 +58,7 @@
 
 ## ❔ How To Run
 
-- [Clone the project](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+- [Clone the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 - Access the project and install the required dependencies
 
@@ -66,6 +66,10 @@
 cd fit-trackr
 npm install
 ```
+
+- Create the ``.env`` file at project root, based on the ``.env.example`` file
+
+- Run the project with ``docker compose up --build``
 
 ## 👤 Author
 
