@@ -9,7 +9,7 @@ export default defineConfig([
 		plugins: { js },
 		extends: ['js/recommended'],
 		languageOptions: { globals: globals.node },
-		ignores: ['**/dist/**', '**/node_modules/**'],
+		ignores: ['**/dist/**', '**/node_modules/**', '**/prisma/**'],
 	},
 	tseslint.configs.recommended,
 ])

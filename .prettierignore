@@ -4,3 +4,5 @@ dist
 .env.example
 *.md
 compose.yaml
+**/prisma/migrations
+**/prisma/schema.prisma

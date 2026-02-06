@@ -5,13 +5,36 @@ services:
     env_file:
       - .env
     ports:
-      - "${FRONTEND_PORT:-5173}:${FRONTEND_PORT}"
+      - "${FRONTEND_PORT:-5173}:${FRONTEND_PORT:-5173}"
     depends_on:
       - backend
+
   backend:
     build:
       context: ./backend
     env_file:
       - .env
     ports:
-      - "${BACKEND_PORT}:${BACKEND_PORT}"
+      - "${BACKEND_PORT:-3000}:${BACKEND_PORT:-3000}"
+    volumes:
+      - ./backend:/src/app
+    depends_on:
+      - database
+  
+  database:
+    image: postgres:18
+    container_name: postgres
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_DB=${DB_NAME:-fit_trackr}
+      - POSTGRES_USER=${DB_USER:-admin}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-adminpassword}
+    ports:
+      - "${DB_PORT:-5432}:${DB_PORT:-5432}"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+    postgres_data:
