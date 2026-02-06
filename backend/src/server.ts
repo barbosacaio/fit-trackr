@@ -1,12 +1,10 @@
-import express from 'express';
+import { app } from './app'
+import dotenv from 'dotenv'
 
-const app = express();
-const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+dotenv.config({ path: '../.env' })
 
-app.get('/', (req, res) => {
-  res.send('FitTrackr is live!');
-});
+const port = process.env.BACKEND_PORT ? Number(process.env.BACKEND_PORT) : 3000
 
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+	console.log(`Server is running at http://localhost:${port}`)
+})
